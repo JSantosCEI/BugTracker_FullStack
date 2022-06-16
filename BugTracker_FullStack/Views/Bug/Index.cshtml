@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Bug>
+@{
+    ViewData["Title"] = "Bugs";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <h1>All Your Bugs</h1> 
+        <div>
+            <a class="btn-primary btn" asp-area="" asp-controller="Bug" asp-action="Create">
+                <i class="bi bi-plus-lg"></i> Add New Bug
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        @foreach(var obj in Model)
+        {
+            <div class="col-3 g-2">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">@obj.BugName</h5>
+                    <p class="card-text text-truncate">@obj.Description</p>
+                    <a asp-controller="Bug" asp-action="Detail" asp-route-id="@obj.BugId"
+                        class="nav-link text-dark text-end">
+                        <i class="bi bi-arrows-angle-expand"></i>
+                    </a>
+                  </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>                                                          

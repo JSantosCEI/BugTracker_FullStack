@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Create Bugs";
+}
+@model Bug
+
+<div class="card w-75" style="margin: 0 auto">
+    <div class="card-header">Create A New Bug</div>
+    <div class="card-body">
+        <form method="post" class="col-8 mx-auto">
+            <div asp-validation-summary="All"></div>
+            <div class="mb-3">
+                <label asp-for="BugName">Bug Name: </label>
+                <input asp-for="BugName" type="text" name="bugName"
+                    class="form-control" placeholder="Enter Bug Name"
+                />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Type">Type: </label>
+                <select asp-for="Type" class="form-control">
+                    <option value="Bug">Bug</option>
+                    <option value="Task">Task</option>
+                    <option value="Feature">Feature</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description">Description: </label>
+                <textarea asp-for="Description" value="" name="description"
+                    class="form-control" placeholder="Enter Description"
+                ></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Priority">Priority: </label>
+                <select asp-for="Priority" class="form-control">
+                    <option value="Low">Low</option>
+                    <option value="Med">Med</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+
+            @*<div class='mb-3'>
+                <label>Assginee: (Optional)</label>
+                <input type="text" name="bugName"
+                    class="form-control" placeholder=""
+                />
+            </div>*@
+
+            <input class="btn btn-primary" type="submit" />
+            <a asp-controller="Bug" asp-action="Index" class="btn-secondary btn">
+                <i class="bi bi-arrow-return-left"></i> Back
+            </a>
+        </form>
+    </div>
+</div>

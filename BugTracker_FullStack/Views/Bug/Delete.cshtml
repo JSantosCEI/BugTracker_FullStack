@@ -1,0 +1,26 @@
+﻿@model Bug
+@{
+    ViewData["Title"] = "Edit Bug";
+}
+
+<div class="row justify-content-md-center">
+    <div class="col-4">
+        <div class="card border-danger" style="margin: 0 auto">
+            <div class="card-body text-center py-4 px-5">
+                <h5 class="card-title text-capitalize">Are you sure you want to delete @Model.Type: "@Model.BugName" permanently?</h5>
+            </div>
+            <div class="card-footer text-muted">
+                <div class="d-flex">
+                    <form method="post" asp-action="DeletePOST" asp-route-id="@Model.BugId">
+                        <button class="btn btn-danger me-1" type="submit">
+                            <i class="bi bi-exclamation-triangle-fill"></i> Delete
+                        </button>
+                    </form>
+                    <a asp-controller="Bug" asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-return-left"></i> Cancel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
