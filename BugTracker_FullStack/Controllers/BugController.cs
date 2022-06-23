@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BugTracker_FullStack.Models;
-using BugTracker_FullStack.Data;
+using BugTracker_FullStack.Areas.Identity.Data;
 
 namespace BugTracker_FullStack.Controllers
 {
     public class BugController : Controller
     {
-        private readonly BTContext _bTContext;
+        private readonly AppDbContext _bTContext;
 
-        public BugController(BTContext bTContext)
+        public BugController(AppDbContext bTContext)
         {
             _bTContext = bTContext;
         }

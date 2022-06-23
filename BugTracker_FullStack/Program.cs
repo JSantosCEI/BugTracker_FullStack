@@ -1,4 +1,3 @@
-using BugTracker_FullStack.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using BugTracker_FullStack.Areas.Identity.Data;
@@ -9,14 +8,11 @@ var connectionString = builder.Configuration.GetConnectionString("AppDbContextCo
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));;
 
-builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<AppDbContext>();;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BTContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("DefaultConnection")
-));
 
 var app = builder.Build();
 

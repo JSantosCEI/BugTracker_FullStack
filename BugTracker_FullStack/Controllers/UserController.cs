@@ -1,6 +1,4 @@
-﻿using BugTracker_FullStack.Data;
-using BugTracker_FullStack.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using BugTracker_FullStack.Areas.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BugTracker_FullStack.Controllers
@@ -8,21 +6,12 @@ namespace BugTracker_FullStack.Controllers
     public class UserController : Controller
     {
 
-        private readonly BTContext _db;
+        private readonly AppDbContext _db;
 
-        public UserController(BTContext db)
+        public UserController(AppDbContext db)
         {
             _db = db;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Auth()
-        {
-            return View();
-        }
     }
 }
